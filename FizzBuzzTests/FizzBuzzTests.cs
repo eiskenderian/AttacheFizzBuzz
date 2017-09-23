@@ -169,7 +169,7 @@ namespace Attache.Tests
             foreach (var v in values)
             {
                 LevelOfFizzBuzz result = FizzBuzz.GetFizzBuzz(v);
-                // These values are still multiples of 3
+                // These values are not multiples of 3
                 Assert.AreEqual(LevelOfFizzBuzz.NONE, result & LevelOfFizzBuzz.FIZZ);
             }
         }
@@ -241,7 +241,7 @@ namespace Attache.Tests
             foreach (var v in values)
             {
                 LevelOfFizzBuzz result = FizzBuzz.GetFizzBuzz(v);
-                // These values are still multiples of 3
+                // These values are not multiples of 3
                 Assert.AreEqual(LevelOfFizzBuzz.NONE, result & LevelOfFizzBuzz.BUZZ);
             }
         }
@@ -289,6 +289,11 @@ namespace Attache.Tests
         {
             int[] values = new int[]
             {
+                // Multipes of neither 3, nor 5
+                7,
+                11,
+                67,
+                97,
                 // Multipes of 3, not 5
                 3,
                 6,
