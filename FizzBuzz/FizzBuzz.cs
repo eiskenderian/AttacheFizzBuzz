@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Attache
 {
+    public enum FizzBuzzOutput
+    {
+        Fizz,
+        Buzz,
+        FizzBuzz
+    }
+
     public enum LevelOfFizzBuzz
     {
         NONE = 0x00,
@@ -45,8 +52,40 @@ namespace Attache
             return result;
         }
 
+        public static string GetOutput(int value)
+        {
+            string result = "";
+            
+            switch (GetFizzBuzz(value))
+            {
+                case LevelOfFizzBuzz.NONE:
+                    result = string.Format("{0}", value);
+                    break;
+
+                case LevelOfFizzBuzz.FIZZ:
+                    result = FizzBuzzOutput.Fizz.ToString("g");
+                    break;
+
+                case LevelOfFizzBuzz.BUZZ:
+                    result = FizzBuzzOutput.Buzz.ToString("g");
+                    break;
+
+                case LevelOfFizzBuzz.FIZZ_BUZZ:
+                    result = FizzBuzzOutput.FizzBuzz.ToString("g");
+                    break;
+            }
+            return result;
+        }
+
         static void Main(string[] args)
         {
+            const int min = 1;
+            const int max = 100;
+
+            for (int i = min; i <= max; ++i)
+            {
+                Console.WriteLine(GetOutput(i));
+            }
         }
     }
 }

@@ -333,5 +333,86 @@ namespace Attache.Tests
                 Assert.AreEqual(LevelOfFizzBuzz.FIZZ_BUZZ, result);
             }
         }
+
+        [TestMethod()]
+        public void OutputsValue()
+        {
+            int[] values = new int[] {
+                1,
+                2,
+                4,
+                44,
+                46,
+                56,
+                91,
+                98
+            };
+
+            foreach (var v in values)
+            {
+                string result = FizzBuzz.GetOutput(v);
+                Assert.AreEqual(string.Format("{0}", v), result);
+            }
+        }
+
+        [TestMethod()]
+        public void OutputsFizz()
+        {
+            int[] values = new int[] {
+                3,
+                6,
+                9,
+                12,
+                18,
+                54,
+                57,
+                99
+            };
+
+            foreach (var v in values)
+            {
+                string result = FizzBuzz.GetOutput(v);
+                Assert.AreEqual(FizzBuzzOutput.Fizz.ToString("G"), result);
+            }
+        }
+
+        [TestMethod()]
+        public void OutputsBuzz()
+        {
+            int[] values = new int[] {
+                5,
+                10,
+                20,
+                70,
+                80,
+                85,
+                95,
+                100
+            };
+
+            foreach (var v in values)
+            {
+                string result = FizzBuzz.GetOutput(v);
+                Assert.AreEqual(FizzBuzzOutput.Buzz.ToString("G"), result);
+            }
+        }
+
+        [TestMethod()]
+        public void OutputsFizzBuzz()
+        {
+            int[] values = new int[] {
+                15,
+                45,
+                60,
+                75,
+                90
+            };
+
+            foreach (var v in values)
+            {
+                string result = FizzBuzz.GetOutput(v);
+                Assert.AreEqual(FizzBuzzOutput.FizzBuzz.ToString("G"), result);
+            }
+        }
     }
 }
